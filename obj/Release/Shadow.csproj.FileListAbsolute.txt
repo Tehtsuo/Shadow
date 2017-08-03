@@ -1,0 +1,11 @@
+D:\DEV\FFXI\Shadow\bin\Release\Shadow.exe.config
+D:\DEV\FFXI\Shadow\obj\Release\Shadow.Shadow.resources
+D:\DEV\FFXI\Shadow\obj\Release\Shadow.Properties.Resources.resources
+D:\DEV\FFXI\Shadow\obj\Release\Shadow.csproj.GenerateResource.Cache
+D:\DEV\FFXI\Shadow\obj\Release\Shadow.csprojResolveAssemblyReference.cache
+D:\DEV\FFXI\Shadow\bin\Release\EliteAPI.dll
+D:\DEV\FFXI\Shadow\bin\Release\Shadow.exe
+D:\DEV\FFXI\Shadow\bin\Release\Shadow.pdb
+D:\DEV\FFXI\Shadow\bin\Release\EliteMMO.API.dll
+D:\DEV\FFXI\Shadow\obj\Release\Shadow.exe
+D:\DEV\FFXI\Shadow\obj\Release\Shadow.pdb

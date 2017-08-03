@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboSlave = new System.Windows.Forms.ComboBox();
             this.checkFollow = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.checkCancel = new System.Windows.Forms.CheckBox();
             this.checkAttack = new System.Windows.Forms.CheckBox();
             this.checkSpectral = new System.Windows.Forms.CheckBox();
@@ -47,19 +46,31 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.checkBlue = new System.Windows.Forms.CheckBox();
             this.checkRed = new System.Windows.Forms.CheckBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // comboMaster
             // 
             this.comboMaster.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboMaster.FormattingEnabled = true;
-            this.comboMaster.Location = new System.Drawing.Point(0, 0);
+            this.comboMaster.Location = new System.Drawing.Point(0, 27);
             this.comboMaster.Name = "comboMaster";
             this.comboMaster.Size = new System.Drawing.Size(184, 21);
             this.comboMaster.TabIndex = 0;
@@ -71,18 +82,18 @@
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 21);
+            this.label1.Location = new System.Drawing.Point(0, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(188, 13);
+            this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "↑Master                                                   Slave↓\r\n";
+            this.label1.Text = "Master";
             // 
             // comboSlave
             // 
             this.comboSlave.Dock = System.Windows.Forms.DockStyle.Top;
             this.comboSlave.FormattingEnabled = true;
-            this.comboSlave.Location = new System.Drawing.Point(0, 34);
+            this.comboSlave.Location = new System.Drawing.Point(0, 61);
             this.comboSlave.Name = "comboSlave";
             this.comboSlave.Size = new System.Drawing.Size(184, 21);
             this.comboSlave.TabIndex = 2;
@@ -92,7 +103,7 @@
             // checkFollow
             // 
             this.checkFollow.AutoSize = true;
-            this.checkFollow.Location = new System.Drawing.Point(0, 5);
+            this.checkFollow.Location = new System.Drawing.Point(0, 0);
             this.checkFollow.Margin = new System.Windows.Forms.Padding(0);
             this.checkFollow.Name = "checkFollow";
             this.checkFollow.Size = new System.Drawing.Size(57, 16);
@@ -101,45 +112,13 @@
             this.toolTip1.SetToolTip(this.checkFollow, "Follow master, including extra moves to ensure proper zoning\r\n");
             this.checkFollow.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.checkCancel, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.checkAttack, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkFollow, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.checkSpectral, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkWhm, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.checkMount, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textMount, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.checkInteractions, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.checkMenuFollow, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 5);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 55);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
-            this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(184, 158);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
             // checkCancel
             // 
             this.checkCancel.AutoSize = true;
-            this.checkCancel.Location = new System.Drawing.Point(0, 37);
+            this.checkCancel.Location = new System.Drawing.Point(0, 16);
             this.checkCancel.Margin = new System.Windows.Forms.Padding(0);
             this.checkCancel.Name = "checkCancel";
-            this.checkCancel.Size = new System.Drawing.Size(58, 16);
+            this.checkCancel.Size = new System.Drawing.Size(58, 17);
             this.checkCancel.TabIndex = 7;
             this.checkCancel.Text = "Cancel";
             this.toolTip1.SetToolTip(this.checkCancel, "If master is no longer invisible or sneaked, cancel my invisible or sneak buff.  " +
@@ -149,7 +128,7 @@
             // checkAttack
             // 
             this.checkAttack.AutoSize = true;
-            this.checkAttack.Location = new System.Drawing.Point(92, 5);
+            this.checkAttack.Location = new System.Drawing.Point(92, 0);
             this.checkAttack.Margin = new System.Windows.Forms.Padding(0);
             this.checkAttack.Name = "checkAttack";
             this.checkAttack.Size = new System.Drawing.Size(55, 16);
@@ -161,7 +140,7 @@
             // checkSpectral
             // 
             this.checkSpectral.AutoSize = true;
-            this.checkSpectral.Location = new System.Drawing.Point(0, 21);
+            this.checkSpectral.Location = new System.Drawing.Point(0, 0);
             this.checkSpectral.Margin = new System.Windows.Forms.Padding(0);
             this.checkSpectral.Name = "checkSpectral";
             this.checkSpectral.Size = new System.Drawing.Size(79, 16);
@@ -173,7 +152,7 @@
             // checkWhm
             // 
             this.checkWhm.AutoSize = true;
-            this.checkWhm.Location = new System.Drawing.Point(92, 21);
+            this.checkWhm.Location = new System.Drawing.Point(92, 0);
             this.checkWhm.Margin = new System.Windows.Forms.Padding(0);
             this.checkWhm.Name = "checkWhm";
             this.checkWhm.Size = new System.Drawing.Size(80, 16);
@@ -185,7 +164,7 @@
             // checkMount
             // 
             this.checkMount.AutoSize = true;
-            this.checkMount.Location = new System.Drawing.Point(92, 37);
+            this.checkMount.Location = new System.Drawing.Point(0, 16);
             this.checkMount.Margin = new System.Windows.Forms.Padding(0);
             this.checkMount.Name = "checkMount";
             this.checkMount.Size = new System.Drawing.Size(57, 16);
@@ -196,7 +175,7 @@
             // 
             // textMount
             // 
-            this.textMount.Location = new System.Drawing.Point(95, 56);
+            this.textMount.Location = new System.Drawing.Point(95, 35);
             this.textMount.Name = "textMount";
             this.textMount.Size = new System.Drawing.Size(86, 21);
             this.textMount.TabIndex = 9;
@@ -207,9 +186,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 53);
+            this.label2.Location = new System.Drawing.Point(3, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 25);
+            this.label2.Size = new System.Drawing.Size(86, 33);
             this.label2.TabIndex = 10;
             this.label2.Text = "Mount Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -217,10 +196,10 @@
             // checkInteractions
             // 
             this.checkInteractions.AutoSize = true;
-            this.checkInteractions.Location = new System.Drawing.Point(0, 78);
+            this.checkInteractions.Location = new System.Drawing.Point(0, 0);
             this.checkInteractions.Margin = new System.Windows.Forms.Padding(0);
             this.checkInteractions.Name = "checkInteractions";
-            this.checkInteractions.Size = new System.Drawing.Size(83, 16);
+            this.checkInteractions.Size = new System.Drawing.Size(83, 17);
             this.checkInteractions.TabIndex = 11;
             this.checkInteractions.Text = "Interactions";
             this.toolTip1.SetToolTip(this.checkInteractions, "Interact with cutscene targets the master uses");
@@ -229,10 +208,10 @@
             // checkMenuFollow
             // 
             this.checkMenuFollow.AutoSize = true;
-            this.checkMenuFollow.Location = new System.Drawing.Point(92, 78);
+            this.checkMenuFollow.Location = new System.Drawing.Point(92, 0);
             this.checkMenuFollow.Margin = new System.Windows.Forms.Padding(0);
             this.checkMenuFollow.Name = "checkMenuFollow";
-            this.checkMenuFollow.Size = new System.Drawing.Size(86, 16);
+            this.checkMenuFollow.Size = new System.Drawing.Size(86, 17);
             this.checkMenuFollow.TabIndex = 12;
             this.checkMenuFollow.Text = "Menu Follow";
             this.toolTip1.SetToolTip(this.checkMenuFollow, "Attempt to follow master through menus");
@@ -240,14 +219,13 @@
             // 
             // groupBox1
             // 
-            this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
             this.groupBox1.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 94);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(3, 249);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(184, 46);
+            this.groupBox1.Size = new System.Drawing.Size(184, 32);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Open Abyssea Boxes";
@@ -262,10 +240,9 @@
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 14);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(184, 32);
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 17F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(184, 18);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // checkBlue
@@ -274,7 +251,7 @@
             this.checkBlue.Location = new System.Drawing.Point(0, 0);
             this.checkBlue.Margin = new System.Windows.Forms.Padding(0);
             this.checkBlue.Name = "checkBlue";
-            this.checkBlue.Size = new System.Drawing.Size(47, 16);
+            this.checkBlue.Size = new System.Drawing.Size(47, 17);
             this.checkBlue.TabIndex = 12;
             this.checkBlue.Text = "Blue";
             this.toolTip1.SetToolTip(this.checkBlue, "Open blue pyxi");
@@ -286,48 +263,164 @@
             this.checkRed.Location = new System.Drawing.Point(92, 0);
             this.checkRed.Margin = new System.Windows.Forms.Padding(0);
             this.checkRed.Name = "checkRed";
-            this.checkRed.Size = new System.Drawing.Size(44, 16);
+            this.checkRed.Size = new System.Drawing.Size(44, 17);
             this.checkRed.TabIndex = 13;
             this.checkRed.Text = "Red";
             this.toolTip1.SetToolTip(this.checkRed, "Open red pyxi");
             this.checkRed.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // groupBox2
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(6, 216);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(171, 108);
-            this.listBox1.TabIndex = 5;
+            this.groupBox2.Controls.Add(this.comboSlave);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.comboMaster);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox2.Location = new System.Drawing.Point(3, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox2.Size = new System.Drawing.Size(184, 85);
+            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Process Selection";
             // 
-            // timer1
+            // label3
             // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label3.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(0, 48);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Slave";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.tableLayoutPanel3);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox3.Location = new System.Drawing.Point(3, 85);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox3.Size = new System.Drawing.Size(184, 79);
+            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Movement/Combat";
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 2;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Controls.Add(this.checkFollow, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkAttack, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.checkMount, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.textMount, 1, 2);
+            this.tableLayoutPanel3.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 14);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(184, 65);
+            this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.tableLayoutPanel4);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox4.Location = new System.Drawing.Point(3, 164);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox4.Size = new System.Drawing.Size(184, 53);
+            this.groupBox4.TabIndex = 7;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Stealth";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Controls.Add(this.checkCancel, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.checkSpectral, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.checkWhm, 1, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 14);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(184, 39);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.tableLayoutPanel5);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox5.Location = new System.Drawing.Point(3, 217);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(0);
+            this.groupBox5.Size = new System.Drawing.Size(184, 32);
+            this.groupBox5.TabIndex = 8;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "NPC Interaction";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.checkMenuFollow, 1, 0);
+            this.tableLayoutPanel5.Controls.Add(this.checkInteractions, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 14);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(184, 18);
+            this.tableLayoutPanel5.TabIndex = 0;
             // 
             // Shadow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(184, 334);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.comboSlave);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboMaster);
+            this.ClientSize = new System.Drawing.Size(190, 284);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Shadow";
+            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.Text = "Shadow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Shadow_FormClosing);
             this.Load += new System.EventHandler(this.Shadow_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -337,7 +430,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboSlave;
         private System.Windows.Forms.CheckBox checkFollow;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.CheckBox checkAttack;
         private System.Windows.Forms.CheckBox checkSpectral;
         private System.Windows.Forms.CheckBox checkWhm;
@@ -347,13 +439,19 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkInteractions;
         private System.Windows.Forms.CheckBox checkMenuFollow;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.CheckBox checkBlue;
         private System.Windows.Forms.CheckBox checkRed;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
     }
 }
 

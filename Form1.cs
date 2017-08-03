@@ -25,20 +25,30 @@ namespace Shadow
         private void Shadow_Load(object sender, EventArgs e)
         {
             PopulateCombos();
-            checkFollow.CheckedChanged += (s, a) => { follow = checkFollow.Checked; };
-            checkAttack.CheckedChanged += (s, a) => { attack = checkAttack.Checked; };
-            checkSpectral.CheckedChanged += (s, a) => { spectral = checkSpectral.Checked; };
-            checkWhm.CheckedChanged += (s, a) => { whm = checkWhm.Checked; };
-            checkCancel.CheckedChanged += (s, a) => { cancel = checkCancel.Checked; };
-            checkMount.CheckedChanged += (s, a) => { mount = checkMount.Checked; };
-            textMount.TextChanged += (s, a) => { mountName = textMount.Text; };
-            checkInteractions.CheckedChanged += (s, a) => { interactions = checkInteractions.Checked; };
-            checkMenuFollow.CheckedChanged += (s, a) => { menufollow = checkMenuFollow.Checked; };
-            checkRed.CheckedChanged += (s, a) => { red = checkRed.Checked; };
-            checkBlue.CheckedChanged += (s, a) => { blue = checkBlue.Checked; };
+            checkFollow.Checked = Properties.Settings.Default.follow;
+            checkFollow.CheckedChanged += (s, a) => { Properties.Settings.Default.follow = checkFollow.Checked; Properties.Settings.Default.Save(); };
+            checkAttack.Checked = Properties.Settings.Default.attack;
+            checkAttack.CheckedChanged += (s, a) => { Properties.Settings.Default.attack = checkAttack.Checked; Properties.Settings.Default.Save(); };
+            checkSpectral.Checked = Properties.Settings.Default.spectral;
+            checkSpectral.CheckedChanged += (s, a) => { Properties.Settings.Default.spectral = checkSpectral.Checked; Properties.Settings.Default.Save(); };
+            checkWhm.Checked = Properties.Settings.Default.whm;
+            checkWhm.CheckedChanged += (s, a) => { Properties.Settings.Default.whm = checkWhm.Checked; Properties.Settings.Default.Save(); };
+            checkCancel.Checked = Properties.Settings.Default.cancel;
+            checkCancel.CheckedChanged += (s, a) => { Properties.Settings.Default.cancel = checkCancel.Checked; Properties.Settings.Default.Save(); };
+            checkMount.Checked = Properties.Settings.Default.mount;
+            checkMount.CheckedChanged += (s, a) => { Properties.Settings.Default.mount = checkMount.Checked; Properties.Settings.Default.Save(); };
+            textMount.Text = Properties.Settings.Default.mountname;
+            textMount.TextChanged += (s, a) => { Properties.Settings.Default.mountname = textMount.Text; Properties.Settings.Default.Save(); };
+            checkInteractions.Checked = Properties.Settings.Default.interactions;
+            checkInteractions.CheckedChanged += (s, a) => { Properties.Settings.Default.interactions = checkInteractions.Checked; Properties.Settings.Default.Save(); };
+            checkMenuFollow.Checked = Properties.Settings.Default.menufollow;
+            checkMenuFollow.CheckedChanged += (s, a) => { Properties.Settings.Default.menufollow = checkMenuFollow.Checked; Properties.Settings.Default.Save(); };
+            checkRed.Checked = Properties.Settings.Default.red;
+            checkRed.CheckedChanged += (s, a) => { Properties.Settings.Default.red = checkRed.Checked; Properties.Settings.Default.Save(); };
+            checkBlue.Checked = Properties.Settings.Default.blue;
+            checkBlue.CheckedChanged += (s, a) => { Properties.Settings.Default.blue = checkBlue.Checked; Properties.Settings.Default.Save(); };
             SlaveNavThread.Start();
             SlaveThread.Start();
-            timer1.Start();
         }
 
         private void PopulateCombos(object sender = null, EventArgs e = null)
@@ -47,6 +57,8 @@ namespace Shadow
             {
                 comboMaster.Items.AddRange(Process.GetProcessesByName("pol").Select(a => a.MainWindowTitle).ToArray());
                 comboSlave.Items.AddRange(Process.GetProcessesByName("pol").Select(a => a.MainWindowTitle).ToArray());
+                if (Properties.Settings.Default.master != "") comboMaster.SelectedItem = Properties.Settings.Default.master;
+                if (Properties.Settings.Default.slave != "") comboSlave.SelectedItem = Properties.Settings.Default.slave;
             }
             else
             {
@@ -60,11 +72,15 @@ namespace Shadow
         private void comboMaster_SelectedIndexChanged(object sender, EventArgs e)
         {
             master = new EliteAPI(Process.GetProcessesByName("pol").First(a => a.MainWindowTitle == comboMaster.Text).Id);
+            Properties.Settings.Default.master = comboMaster.Text;
+            Properties.Settings.Default.Save();
         }
 
         private void comboSlave_SelectedIndexChanged(object sender, EventArgs e)
         {
             slave = new EliteAPI(Process.GetProcessesByName("pol").First(a => a.MainWindowTitle == comboSlave.Text).Id);
+            Properties.Settings.Default.slave = comboSlave.Text;
+            Properties.Settings.Default.Save();
         }
 
         private void Shadow_FormClosing(object sender, FormClosingEventArgs e)
@@ -100,8 +116,8 @@ namespace Shadow
                 if (entity.Distance < 10 && entity.Name == "Sturdy Pyxis") pyxis = entity.Face + " " + entity.Render0000; 
                 if (entity.Distance < 10 && entity.Name == "Sturdy Pyxis" && (!grayList.ContainsKey(entity.TargetID) || grayList[entity.TargetID] < DateTime.Now))
                 {
-                    if (entity.Face == 965 && blue) return entity;
-                    if (entity.Face == 968 && red) return entity;
+                    if (entity.Face == 965 && Properties.Settings.Default.blue) return entity;
+                    if (entity.Face == 968 && Properties.Settings.Default.red) return entity;
                 }
             }
             return null;
@@ -125,19 +141,6 @@ namespace Shadow
         }
 
         #endregion
-
-        static bool follow = false;
-        static bool attack = false;
-        static bool spectral = false;
-        static bool whm = false;
-        static bool cancel = false;
-        static bool mount = false;
-        static string mountName = "Raptor";
-        static bool interactions = false;
-        static bool menufollow = false;
-        static bool blue = false;
-        static bool red = false;
-        static bool gold = false;
 
         static Thread SlaveNavThread = new Thread(() => SlaveNavDoWork());
         static void SlaveNavDoWork()
@@ -190,7 +193,7 @@ namespace Shadow
                     case 0:
                     case 4:
                     case 33:
-                        if (master.Player.ZoneId != slave.Player.ZoneId && follow)
+                        if (master.Player.ZoneId != slave.Player.ZoneId && Properties.Settings.Default.follow)
                         {
                             if (!zoneAttempt)
                             {
@@ -204,24 +207,24 @@ namespace Shadow
                         {
                             zoneAttempt = false;
                         }
-                        if (slave.Player.Status == 1 && attack)
+                        if (slave.Player.Status == 1 && Properties.Settings.Default.attack)
                         {
                             slave.ThirdParty.SendString("/attackoff");
                             continue;
                         }
-                        if (master.Player.Status == 85 && slave.Player.Status != 85 && mount)
+                        if (master.Player.Status == 85 && slave.Player.Status != 85 && Properties.Settings.Default.mount)
                         {
-                            slave.ThirdParty.SendString("/mount " + mountName);
+                            slave.ThirdParty.SendString("/mount " + Properties.Settings.Default.mountname);
                             continue;
                         }
-                        if (master.Player.Status != 85 && slave.Player.Status == 85 && mount)
+                        if (master.Player.Status != 85 && slave.Player.Status == 85 && Properties.Settings.Default.mount)
                         {
                             slave.ThirdParty.SendString("/dismount");
                             continue;
                         }
                         followqueue.Enqueue(new point(master.Player.X, master.Player.Y, master.Player.Z, master.Player.ZoneId));
 
-                        if (follow)
+                        if (Properties.Settings.Default.follow)
                         {
                             if (followqueue.Count > 15)
                             {
@@ -255,14 +258,14 @@ namespace Shadow
                             }
                         }
 
-                        if (!PlayerInfo.HasBuff(71) && new PlayerInfo(master).HasBuff(71) && whm)
+                        if (!PlayerInfo.HasBuff(71) && new PlayerInfo(master).HasBuff(71))
                         {
-                            if (spectral)
+                            if (Properties.Settings.Default.spectral)
                             {
                                 slave.ThirdParty.SendString("/ja \"Spectral Jig\" <me>");
                                 Thread.Sleep(1000);
                             }
-                            if (whm)
+                            if (Properties.Settings.Default.whm)
                             {
                                 slave.ThirdParty.SendString("/ma \"Sneak\" <me>");
                                 Thread.Sleep(6000);
@@ -271,23 +274,23 @@ namespace Shadow
 
                         if (!PlayerInfo.HasBuff(69) && new PlayerInfo(master).HasBuff(69))
                         {
-                            if (spectral)
+                            if (Properties.Settings.Default.spectral)
                             {
                                 slave.ThirdParty.SendString("/ja \"Spectral Jig\" <me>");
                                 Thread.Sleep(1000);
                             }
-                            if (whm)
+                            if (Properties.Settings.Default.whm)
                             {
                                 slave.ThirdParty.SendString("/ma \"Invisible\" <me>");
                                 Thread.Sleep(6000);
                             }
                         }
-                        if (!new PlayerInfo(master).HasBuff(69) && PlayerInfo.HasBuff(69) && cancel)
+                        if (!new PlayerInfo(master).HasBuff(69) && PlayerInfo.HasBuff(69) && Properties.Settings.Default.cancel)
                         {
                             if (Windower(slave) == "Windower") slave.ThirdParty.SendString("//cancel 69");
                             if (Windower(slave) == "Ashita") slave.ThirdParty.SendString("/cancel Invisible");
                         }
-                        if (!new PlayerInfo(master).HasBuff(71) && PlayerInfo.HasBuff(71) && cancel)
+                        if (!new PlayerInfo(master).HasBuff(71) && PlayerInfo.HasBuff(71) && Properties.Settings.Default.cancel)
                         {
                             if (Windower(slave) == "Windower") slave.ThirdParty.SendString("//cancel 71");
                             if (Windower(slave) == "Ashita") slave.ThirdParty.SendString("/cancel Sneak");
@@ -295,12 +298,12 @@ namespace Shadow
 
                         break;
                     case 1:
-                        if (slave.Target.GetTargetInfo().TargetIndex != master.Target.GetTargetInfo().TargetIndex && attack)
+                        if (slave.Target.GetTargetInfo().TargetIndex != master.Target.GetTargetInfo().TargetIndex && Properties.Settings.Default.attack)
                         {
                             slave.Target.SetTarget((int)master.Target.GetTargetInfo().TargetIndex);
                             continue;
                         }
-                        if (slave.Player.Status == 0 && attack)
+                        if (slave.Player.Status == 0 && Properties.Settings.Default.attack)
                         {
                             slave.ThirdParty.SendString("/attack <t>");
                             continue;
@@ -322,7 +325,7 @@ namespace Shadow
                         float tX = target.X - slave.Player.X;
                         float tY = target.Y - slave.Player.Y;
                         float tZ = target.Z - slave.Player.Z;
-                        if (attack)
+                        if (Properties.Settings.Default.attack)
                         {
                             if (target.Distance > 2 && !PlayerInfo.Casting && !Entity.Any(a => a.Name == "Moogle"))
                             {
@@ -364,7 +367,7 @@ namespace Shadow
 
                 if (master.Player.Status == 0 || master.Player.Status == 4)
                 {
-                    if (master.Player.Status == 4 && slave.Player.Status != 4 && interactions)
+                    if (master.Player.Status == 4 && slave.Player.Status != 4 && Properties.Settings.Default.interactions)
                     {
                         slave.Target.SetTarget((int)master.Target.GetTargetInfo().TargetIndex);
                         Thread.Sleep(1000);
@@ -374,7 +377,7 @@ namespace Shadow
                     }
 
                     if (slave.Menu.MenuName != "") idle = 0;
-                    if (master.Menu.MenuName == "menu    query   " && slave.Menu.MenuName == "" && menufollow)
+                    if (master.Menu.MenuName == "menu    query   " && slave.Menu.MenuName == "" && Properties.Settings.Default.menufollow)
                     {
                         if (slave.Target.GetTargetInfo().TargetId != master.Target.GetTargetInfo().TargetId)
                         {
@@ -394,7 +397,7 @@ namespace Shadow
                     }
 
                     sleep = 10;
-                    if (TargetInfo.Name != "Riftworn Pyxis" && menufollow)
+                    if (TargetInfo.Name != "Riftworn Pyxis" && Properties.Settings.Default.menufollow)
                     {
                         if (slave.Player.Status == 4 && master.Player.Status == 0)
                         {
@@ -435,13 +438,6 @@ namespace Shadow
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (pyxis != "")
-            {
-                listBox1.Items.Insert(0, pyxis);
-            }
-        }
     }
 
 
