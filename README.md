@@ -15,7 +15,7 @@ Shadow is not meant to function as a buff or combat bot - while it will follow y
   * The slave will mount/dismount when the master does.  It will use the mount specified in Shadow.
 * Stealth
   * The slave will use spectral jig or sneak/invisible to match the master's stealth buffs.  
-  *If cancel is enabled, it will also drop sneak/invisible when the master does.  This requires that the corresponding addon - Cancel (Windower) or Debuff (Ashita) - be installed.
+  * If cancel is enabled, it will also drop sneak/invisible when the master does.  This requires that the corresponding addon - Cancel (Windower) or Debuff (Ashita) - be installed.
 * NPC Interaction
   * If enabled, Shadow will interact with the same object as the master when the master begins a cutscene.  Best combined with cutscene management addons like Enternity and/or FastCS.
   * If enabled, Shadow will attempt to follow the master through menu options.  Notable limitations: Shadow does not know when you select a menu option on the master, so it simply keeps your menu index synced and hits "enter" when it notices the master changed to a different menu.  So, it is important to keep menus the same on both characters - for example you will need to try to make sure you have the same home points unlocked on both characters, or the menu will be different and you won't be selecting the same destination on the slave.  It is also usually best to use the exit options in menus (i.e. "On second thought, never mind.") instead of just hitting escape on your main.
